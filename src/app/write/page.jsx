@@ -3,6 +3,7 @@ import { themeContext } from "@/context/ThemeContext";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+// import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlinePlus, AiOutlineLink } from "react-icons/ai";
@@ -30,6 +31,7 @@ const WritePage = () => {
     const session = useSession();
     const router = useRouter();
     const { theme } = useContext(themeContext);
+    // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
     if (session.status === "unauthenticated") {
         router.push("/");
@@ -175,7 +177,9 @@ const WritePage = () => {
                         setPost({ ...post, catSlug: e.target.value })
                     }
                     name="category"
-                    className={`bg-white ${theme === 'dark' && 'dark:bg-black'}`}
+                    className={`bg-white ${
+                        theme === "dark" && "dark:bg-black"
+                    }`}
                 >
                     <option value="">Choose category</option>
                     {categories.map((cat) => (

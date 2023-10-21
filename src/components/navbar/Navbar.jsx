@@ -19,7 +19,7 @@ const Navbar = () => {
         },
         {
             name: "Trending",
-            url: "/trending",
+            url: "/blogs/top",
         },
         {
             name: "Top",
