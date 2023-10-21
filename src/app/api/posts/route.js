@@ -21,7 +21,7 @@ export const GET = async (req) => {
     try {
         const [posts, count] = await prisma.$transaction([
             prisma.post.findMany(query),
-            prisma.post.count({where: query.where}),
+            prisma.post.count({ where: query.where }),
         ]);
 
         return NextResponse.json(
@@ -36,22 +36,20 @@ export const GET = async (req) => {
 
 export const POST = async (req) => {
     try {
+        const { title, slug, desc, catSlug, userEmail, img } = await req.json();
 
-        const { title, desc, catSlug, userEmail } = await req.json();
-        const slug = title
-        
-        const res = await prisma.post.create({
+        const post = await prisma.post.create({
             data: {
-                slug: "kdkdkdkf",
-                title: "aaaaaaaaaa",
-                desc: "aaaaaaaa desc",
-                catSlug: "dsa",
-                userEmail: "copycoder01@gmail.com",
+                title,
+                desc,
+                catSlug,
+                userEmail,
+                slug,
+                img,
             },
         });
 
-        console.log(res);
-        return NextResponse.json({ success: true }, { status: 201 });
+        return NextResponse.json({ post }, { status: 201 });
     } catch (error) {
         console.log(error);
         return NextResponse.json({ message: error.message }, { status: 500 });
