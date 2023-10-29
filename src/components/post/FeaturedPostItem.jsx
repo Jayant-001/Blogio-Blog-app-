@@ -26,7 +26,8 @@ const FeaturedPostItem = ({ post }) => {
                     <h1 className="title-font sm:text-3xl text-2xl mb-4 font-medium ">
                         {post.title}
                     </h1>
-                    <p className="mb-8 leading-relaxed">{post.desc}</p>
+                    <div dangerouslySetInnerHTML={{ __html: post?.desc }} />
+                    {/* <p className="mb-8 leading-relaxed">{post.desc}</p> */}
                     <div className="flex justify-center">
                         <Link
                             href={`/${post.slug}`}

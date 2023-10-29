@@ -55,18 +55,6 @@ const BlogPage = async ({ params }) => {
                         </header>
                         <div dangerouslySetInnerHTML={{ __html: post?.desc }} />
 
-                        <p>
-                            <strong>Start from the inside out</strong>. A nice
-                            way to both organize your tasks and create more
-                            user-friendly prototypes is by building your
-                            prototypes ‘inside out’. Start by focusing on what
-                            will be important to your user, like a Buy now
-                            button or an image gallery, and list each element by
-                            order of priority. This way, you’ll be able to
-                            create a prototype that puts your users’ needs at
-                            the heart of your design.
-                        </p>
-
                         <button className="flex mx-auto gap-3 border active:border-0 active:ring-0 rounded-lg px-5 py-2 font-bold text-xl items-center my-5">
                             Like{" "}
                             <span className="text-red-600 text-2xl">♥</span>
